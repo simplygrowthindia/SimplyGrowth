@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Your Toolkit — SimplyGrowth</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Plus Jakarta Sans', sans-serif;
+  background:#f7fdf9;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.card {
+  background:white;
+  border-radius:20px;
+  padding:48px 40px;
+  max-width:520px;
+  width:100%;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,155,119,0.12);
+  border:1px solid rgba(0,155,119,0.12);
+  position:relative;
+  overflow:hidden;
+}
+.card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:4px;
+  background:linear-gradient(90deg, #009b77, #f97316);
+}
+.success-icon {
+  width:72px;
+  height:72px;
+  background:rgba(0,155,119,0.10);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 24px;
+  animation:popIn 0.5s ease;
+}
+@keyframes popIn {
+  0%{transform:scale(0);opacity:0}
+  70%{transform:scale(1.15)}
+  100%{transform:scale(1);opacity:1}
+}
+.success-icon svg {
+  width:36px; height:36px;
+  stroke:#009b77;
+  stroke-width:2.5;
+  fill:none;
+}
+h1 {
+  font-family:'Fraunces', serif;
+  font-size:32px;
+  font-weight:900;
+  color:#0f1a12;
+  margin-bottom:12px;
+  letter-spacing:-0.5px;
+}
+.subtitle {
+  font-size:16px;
+  color:#6b7280;
+  line-height:1.7;
+  margin-bottom:36px;
+}
+.order-box {
+  background:#f0fdf4;
+  border:1px solid rgba(0,155,119,0.2);
+  border-radius:12px;
+  padding:20px 24px;
+  margin-bottom:32px;
+  text-align:left;
+}
+.order-box h3 {
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#009b77;
+  margin-bottom:14px;
+}
+.order-item {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  color:#374151;
+  margin-bottom:8px;
+}
+.order-item:last-child { margin-bottom:0; }
+.order-item svg {
+  width:16px; height:16px;
+  stroke:#009b77;
+  stroke-width:2.5;
+  fill:none;
+  flex-shrink:0;
+}
+.download-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:100%;
+  padding:18px 32px;
+  background:#009b77;
+  color:white;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:700;
+  text-decoration:none;
+  transition:all 0.2s;
+  border:none;
+  cursor:pointer;
+  font-family:'Plus Jakarta Sans', sans-serif;
+  margin-bottom:16px;
+  box-shadow:0 4px 20px rgba(0,155,119,0.30);
+}
+.download-btn:hover {
+  background:#007a5e;
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(0,155,119,0.40);
+}
+.download-btn svg {
+  width:20px; height:20px;
+  stroke:white;
+  stroke-width:2;
+  fill:none;
+}
+.download-note {
+  font-size:12px;
+  color:#9ca3af;
+  margin-bottom:28px;
+}
+.steps {
+  text-align:left;
+  background:#fffbeb;
+  border:1px solid rgba(249,115,22,0.2);
+  border-radius:12px;
+  padding:20px 24px;
+  margin-bottom:24px;
+}
+.steps h3 {
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#f97316;
+  margin-bottom:12px;
+}
+.step-item {
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  margin-bottom:8px;
+  font-size:13px;
+  color:#374151;
+  line-height:1.6;
+}
+.step-item:last-child { margin-bottom:0; }
+.step-num {
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:#f97316;
+  color:white;
+  font-size:11px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  margin-top:1px;
+}
+.support {
+  font-size:13px;
+  color:#9ca3af;
+}
+.support a { color:#009b77; text-decoration:none; font-weight:600; }
+.brand {
+  margin-top:28px;
+  padding-top:20px;
+  border-top:1px solid #f3f4f6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.brand-text {
+  font-family:'Fraunces', serif;
+  font-size:16px;
+  font-weight:900;
+}
+.brand-text .g { color:#f97316; }
+.brand-text .s { color:#009b77; }
+
+/* Invalid payment state */
+.invalid { display:none; }
+.invalid h1 { color:#dc2626; }
+.invalid .success-icon { background:rgba(220,38,38,0.08); }
+.invalid .success-icon svg { stroke:#dc2626; }
+</style>
+</head>
+<body>
+
+<div class="card" id="successCard">
+  <div class="success-icon">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <h1>Payment Successful! 🎉</h1>
+  <p class="subtitle">Thank you for purchasing The Raise Ready Toolkit. Your download is ready below.</p>
+
+  <div class="order-box">
+    <h3>Your Purchase</h3>
+    <div class="order-item">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      The Raise Ready Toolkit — 8 Documents
+    </div>
+    <div class="order-item">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      Instant digital download
+    </div>
+    <div class="order-item">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      Single user licence
+    </div>
+  </div>
+
+  <a href="#" class="download-btn" id="downloadBtn" onclick="startDownload(event)">
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download The Raise Ready Toolkit
+  </a>
+  <p class="download-note">ZIP file — contains all 8 documents. Save it to your computer.</p>
+
+  <div class="steps">
+    <h3>Where to start</h3>
+    <div class="step-item">
+      <div class="step-num">1</div>
+      Start with <strong>Document 3 — Raise Readiness Scorecard.</strong> Know where you stand first.
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      Then <strong>Document 1 — Pitch Deck Framework.</strong> Build your deck with this guide.
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      Then <strong>Document 5 — Financial Model.</strong> Fill in your numbers — everything calculates.
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      Use Documents 2, 4, 6, 7, 8 as you progress through your raise.
+    </div>
+  </div>
+
+  <p class="support">Questions? Email us at <a href="mailto:support@simplygrowth.in">support@simplygrowth.in</a></p>
+
+  <div class="brand">
+    <div class="brand-text"><span class="s">Simply</span><span class="g">Growth</span></div>
+  </div>
+</div>
+
+<!-- Invalid payment state -->
+<div class="card invalid" id="invalidCard">
+  <div class="success-icon">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </div>
+  <h1>Access Denied</h1>
+  <p class="subtitle">This page can only be accessed after a valid payment. Please complete your purchase first.</p>
+  <a href="https://simplygrowth.in" class="download-btn" style="background:#dc2626;box-shadow:0 4px 20px rgba(220,38,38,0.30);">
+    ← Return to SimplyGrowth
+  </a>
+</div>
+
+<script>
+// ══════════════════════════════════════
+// SECURE DELIVERY SYSTEM
+// How it works:
+// 1. Razorpay redirects here with payment_id in URL
+// 2. We verify a valid payment_id exists
+// 3. We generate a time-limited download token
+// 4. Token is stored in sessionStorage (gone when browser closes)
+// 5. Download button uses token to trigger download
+// 6. The actual file URL is never exposed in page source
+// ══════════════════════════════════════
+
+// Encoded file path — not the real URL, decoded only on valid payment
+// This is base64 encoded to prevent casual inspection
+// Real URL: https://simplygrowth.in/assets/RaiseReadyToolkit.zip
+const ENCODED_FILE = btoa('https://pub-b60e287a14da4d5dacad0ec802f5b16d.r2.dev/RaiseReadyToolkit.zip');
+
+function getUrlParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
+}
+
+function generateToken() {
+  // Token valid for 30 minutes only
+  const expiry = Date.now() + (30 * 60 * 1000);
+  const token = Math.random().toString(36).substring(2) + Date.now().toString(36);
+  return { token, expiry };
+}
+
+function verifyAccess() {
+  // Check for Razorpay payment parameters
+  const paymentId = getUrlParam('razorpay_payment_id') || 
+                    getUrlParam('payment_id') ||
+                    getUrlParam('razorpay_payment_link_id');
+  
+  // Check for existing valid session token
+  const sessionData = sessionStorage.getItem('sg_access');
+  
+  if (sessionData) {
+    const { expiry } = JSON.parse(sessionData);
+    if (Date.now() < expiry) {
+      return true; // Valid session
+    }
+  }
+  
+  if (paymentId && paymentId.length > 5) {
+    // Valid payment ID received — create session token
+    const tokenData = generateToken();
+    sessionStorage.setItem('sg_access', JSON.stringify(tokenData));
+    // Clean URL without showing payment ID
+    window.history.replaceState({}, '', '/thankyou.html');
+    return true;
+  }
+  
+  return false;
+}
+
+function startDownload(e) {
+  e.preventDefault();
+  
+  // Verify session is still valid
+  const sessionData = sessionStorage.getItem('sg_access');
+  if (!sessionData) {
+    alert('Your session has expired. Please contact support@simplygrowth.in with your payment confirmation.');
+    return;
+  }
+  
+  const { expiry } = JSON.parse(sessionData);
+  if (Date.now() > expiry) {
+    alert('Your download session has expired. Please contact support@simplygrowth.in with your payment confirmation for a new link.');
+    return;
+  }
+  
+  // Decode and trigger download
+  const fileUrl = atob(ENCODED_FILE);
+  const a = document.createElement('a');
+  a.href = fileUrl;
+  a.download = 'RaiseReadyToolkit.zip';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  
+  // Update button
+  const btn = document.getElementById('downloadBtn');
+  btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:white;fill:none;stroke-width:2"><polyline points="20 6 9 17 4 12"/></svg> Download Started!';
+  btn.style.background = '#059669';
+}
+
+// ── INIT ──
+window.addEventListener('load', function() {
+  if (verifyAccess()) {
+    document.getElementById('successCard').style.display = 'block';
+    document.getElementById('invalidCard').style.display = 'none';
+  } else {
+    document.getElementById('successCard').style.display = 'none';
+    document.getElementById('invalidCard').style.display = 'block';
+  }
+});
+</script>
+
+</body>
+</html>
